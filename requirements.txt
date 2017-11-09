@@ -1,0 +1,4 @@
+pynamodb==3.1.0
+dynamodb_json
+boto3 #no-deploy
+botocore #no-deploy
