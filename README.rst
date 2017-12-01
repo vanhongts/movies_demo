@@ -26,6 +26,7 @@ And it reports::
 
 We create a file index.html and stored it in AWS S3. From index.html, we wrote some jquery function to call Aws Api Gateway.
 
-This example used PynamoDB to access DynamoDB, aws lambda python to write code, Serverless framework to deploy to aws cloud. We hope that is helpful for you
+This example used PynamoDB to access DynamoDB, aws lambda python to write code, Serverless framework to deploy to aws cloud. 
+
 
 
