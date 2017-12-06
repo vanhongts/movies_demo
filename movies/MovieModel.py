@@ -72,9 +72,12 @@ class Movie(Model):
 
     '''
     class Meta:
-        table_name = "Movies"
-        region = 'ap-southeast-1'
-        host = 'https://dynamodb.ap-southeast-1.amazonaws.com'
+        table_name = os.environ['DYNAMODB_TABLE']
+        if os.environ['IS_OFFLINE']:
+            host = 'http://localhost:8000'
+        else:
+            region = 'ap-southeast-1'
+            host = 'https://dynamodb.ap-southeast-1.amazonaws.com'
 
     year = NumberAttribute(hash_key=True)
     title = UnicodeAttribute(range_key=True)
