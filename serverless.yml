@@ -18,8 +18,8 @@ service: movies
 # frameworkVersion: "=X.X.X"
 
 plugins:
-  - serverless-python-requirements
-
+#  - serverless-python-requirements
+  - serverless-wsgi
 package:
   exclude:
     - node_modules/**
@@ -37,6 +37,7 @@ provider:
   region: ap-southeast-1
   environment:
     DYNAMODB_TABLE: Movies
+    IS_OFFLINE: True
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -98,6 +99,13 @@ functions:
           path: movies
           method: get
           cors: true
+
+
+
+custom:
+  wsgi:
+    app: api.app
+    packRequirements: false
 
 
 #  get:
